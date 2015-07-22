@@ -9,10 +9,16 @@
 //delay in seconds for intervals between connections
 let SLEEP_TIME = 0.15
 
+protocol VisitorDelegate {
+
+    func visitorDidFinish()
+}
+
 class Visitor: CCNode {
     
     var grid: Grid!
     var runSpeed: UInt32 = 1
+    var delegate: VisitorDelegate?
     
     func transformGridToMazeType(type:MazeType) {
         //self.grid = grid
@@ -69,6 +75,10 @@ class Visitor: CCNode {
                 NSThread.sleepForTimeInterval(SLEEP_TIME)
                 grid.tileAtCoordinate(coordinate).background.color = CCColor.lightGrayColor()
             }
+        }
+        
+        if let delegate = delegate {
+            delegate.visitorDidFinish()
         }
     }
     
@@ -128,6 +138,10 @@ class Visitor: CCNode {
                 //sleep(runSpeed)
             }
         }
+        
+        if let delegate = delegate {
+            delegate.visitorDidFinish()
+        }
     }
     
     //random walk maze
@@ -170,6 +184,10 @@ class Visitor: CCNode {
             coordinate = coordinate.coordinateOffsetByDirection(direction)
             grid.tileAtCoordinate(coordinate).background.color = CCColor.yellowColor()
             NSThread.sleepForTimeInterval(SLEEP_TIME/2)
+        }
+        
+        if let delegate = delegate {
+            delegate.visitorDidFinish()
         }
     }
     
@@ -236,6 +254,10 @@ class Visitor: CCNode {
             //start new walk
             walk.removeAll(keepCapacity: true)
             
+        }
+        
+        if let delegate = delegate {
+            delegate.visitorDidFinish()
         }
         
     }

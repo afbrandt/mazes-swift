@@ -8,11 +8,12 @@
 
 import Foundation
 
-class MainScene: CCNode {
+class MainScene: CCNode, VisitorDelegate {
     
     weak var grid: Grid!
     
     var visitor = Visitor()
+    var isBusy: Bool = false
     
     override func onEnter() {
         //let tile = CCBReader.load("Tile") as! Tile
@@ -24,6 +25,7 @@ class MainScene: CCNode {
         //grid.addChild(tile)
         
         grid.generate()
+        visitor.delegate = self
         
         visitor.grid = grid
         
@@ -35,29 +37,41 @@ class MainScene: CCNode {
     
     func startBinaryTree() {
         
-        grid.reset()
-        
-        visitor.transformGridToMazeType(.BinaryTree)
+        if !isBusy {
+            grid.reset()
+            isBusy = true
+            visitor.transformGridToMazeType(.BinaryTree)
+        }
     }
     
     func startSidewinder() {
         
-        grid.reset()
-        
-        visitor.transformGridToMazeType(.Sidewinder)
+        if !isBusy {
+            grid.reset()
+            isBusy = true
+            visitor.transformGridToMazeType(.Sidewinder)
+        }
     }
     
     func startAldousBroder() {
         
-        grid.reset()
-        
-        visitor.transformGridToMazeType(.AldousBroder)
+        if !isBusy {
+            grid.reset()
+            isBusy = true
+            visitor.transformGridToMazeType(.AldousBroder)
+        }
     }
     
     func startWilson() {
         
-        grid.reset()
-        
-        visitor.transformGridToMazeType(.Wilson)
+        if !isBusy {
+            grid.reset()
+            isBusy = true
+            visitor.transformGridToMazeType(.Wilson)
+        }
+    }
+    
+    func visitorDidFinish() {
+        isBusy = false
     }
 }
