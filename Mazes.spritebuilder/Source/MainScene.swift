@@ -8,11 +8,13 @@
 
 import Foundation
 
-class MainScene: CCNode, VisitorDelegate {
+class MainScene: CCNode, VisitorDelegate, ScientistDelegate {
     
     weak var grid: Grid!
     
     var visitor = Visitor()
+    var scientist = Scientist()
+    
     var isBusy: Bool = false
     
     override func onEnter() {
@@ -25,9 +27,12 @@ class MainScene: CCNode, VisitorDelegate {
         //grid.addChild(tile)
         
         grid.generate()
-        visitor.delegate = self
         
+        visitor.delegate = self
         visitor.grid = grid
+        
+        scientist.delegate = self
+        scientist.grid = grid
         
         //let visitor = Visitor()
         
@@ -71,7 +76,25 @@ class MainScene: CCNode, VisitorDelegate {
         }
     }
     
+    func runDepthAnalysis() {
+        
+        if !isBusy {
+            
+            isBusy = true
+            scientist.runRandomDepthAnalysis()
+            
+        }
+    }
+    
+    //MARK: - VisitorDelegate methods
+    
     func visitorDidFinish() {
+        isBusy = false
+    }
+    
+    //MARK: - ScientistDelegate methods
+    
+    func scientistDidFinish() {
         isBusy = false
     }
 }

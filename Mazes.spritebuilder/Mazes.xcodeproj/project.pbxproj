@@ -10,6 +10,7 @@
 		494787F01B549AF9003FD201 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494787EF1B549AF9003FD201 /* Tile.swift */; };
 		494787F61B549D99003FD201 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494787F51B549D99003FD201 /* Grid.swift */; };
 		494787F81B55AF51003FD201 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494787F71B55AF51003FD201 /* Visitor.swift */; };
+		49994CFB1B69428B00257771 /* Scientist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49994CFA1B69428B00257771 /* Scientist.swift */; };
 		5B121030197484FA004C1E1D /* MazesActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* MazesActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
@@ -154,6 +155,7 @@
 		494787EF1B549AF9003FD201 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		494787F51B549D99003FD201 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		494787F71B55AF51003FD201 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
+		49994CFA1B69428B00257771 /* Scientist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scientist.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
+				49994CFA1B69428B00257771 /* Scientist.swift */,
 				494787F71B55AF51003FD201 /* Visitor.swift */,
 				494787F51B549D99003FD201 /* Grid.swift */,
 				494787EF1B549AF9003FD201 /* Tile.swift */,
@@ -825,6 +828,7 @@
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				494787F61B549D99003FD201 /* Grid.swift in Sources */,
+				49994CFB1B69428B00257771 /* Scientist.swift in Sources */,
 				494787F81B55AF51003FD201 /* Visitor.swift in Sources */,
 				494787F01B549AF9003FD201 /* Tile.swift in Sources */,
 			);
