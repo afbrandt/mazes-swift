@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ScientistDelegate {
-    
+
     func scientistDidFinish()
     
 }
@@ -29,6 +29,7 @@ class Scientist {
     
     var delegate: ScientistDelegate!
     
+    var flatten: Bool = false
     var flatTree: [Coordinate] = []
     
     func startRandomDepthAnalysis() {
@@ -39,7 +40,7 @@ class Scientist {
         let rootNode = recursivelyBuildTree(coord, parent: nil)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { (Void) in
-            self.recursivelyWalkTree(rootNode, depth: 0, flatten: false)
+            self.recursivelyWalkTree(rootNode, depth: 0)
             //self.walkFlattenedTree()
             
             dispatch_async(dispatch_get_main_queue(), { (Void) in
@@ -55,7 +56,7 @@ class Scientist {
         let rootNode = recursivelyBuildTree(coordinate, parent: nil)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { (Void) in
-            self.recursivelyWalkTree(rootNode, depth: 0, flatten: false)
+            self.recursivelyWalkTree(rootNode, depth: 0)
             //self.walkFlattenedTree()
             
             dispatch_async(dispatch_get_main_queue(), { (Void) in
@@ -71,7 +72,7 @@ class Scientist {
         let rootNode = recursivelyBuildTree(coordinate, parent: nil)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { (Void) in
-            self.recursivelyWalkTree(rootNode, depth: 0, flatten: false)
+            self.recursivelyWalkTree(rootNode, depth: 0)
             //self.walkFlattenedTree()
             
             dispatch_async(dispatch_get_main_queue(), { (Void) in
@@ -109,18 +110,18 @@ class Scientist {
         return node
     }
     
-    func recursivelyWalkTree(node: NTree<Coordinate>, depth: Int, flatten: Bool) {
+    func recursivelyWalkTree(node: NTree<Coordinate>, depth: Int) {
         let coord = node.value
         let tile = grid.tileAtCoordinate(coord)
         if flatten {
             flatTree.append(coord)
         } else {
             let const = Float(1.0 - Double(depth)*0.03)
-            tile.background.color = CCColor(red: 0.6, green: const, blue: const)
+            tile.background.color = CCColor(red: const/2, green: const, blue: const/2)
         }
         NSThread.sleepForTimeInterval(SLEEP_TIME)
         for child in node.children {
-            recursivelyWalkTree(child, depth: depth+1, flatten: flatten)
+            recursivelyWalkTree(child, depth: depth+1)
         }
     }
     
