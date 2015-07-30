@@ -53,3 +53,10 @@ Result:
 Result:
 
 ![](./wilson.gif)
+
+#Depth Analysis - Random
+
+Chooses a random cell on the grid and explores the entire maze.  Colors the cell based on depth travelled.
+
+![](./random-depth-analysis.gif)
+
