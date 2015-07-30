@@ -217,6 +217,8 @@
 						<string>Grid.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1556,8 +1558,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>26.00006103515625</real>
-							<real>33.999969482421875</real>
+							<real>19</real>
+							<real>28</real>
 							<integer>2</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1639,7 +1641,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Depth Analysis</string>
+							<string>Analysis</string>
 							<false/>
 						</array>
 					</dict>
@@ -1849,8 +1851,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

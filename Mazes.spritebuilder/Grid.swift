@@ -51,6 +51,13 @@ struct Coordinate: Equatable {
             return Coordinate(row:self.row, column:self.column-1)
         }
     }
+    
+    static func pickRandomCellCoordinate() -> Coordinate {
+        let row = Int(CCRANDOM_0_1()*Float(GRID_SIZE))
+        let column = Int(CCRANDOM_0_1()*Float(GRID_SIZE))
+        let coordinate = Coordinate(row: row,column: column)
+        return coordinate
+    }
 }
 
 infix operator ->> {}
