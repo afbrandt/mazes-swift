@@ -76,13 +76,23 @@ class MainScene: CCNode, VisitorDelegate, ScientistDelegate {
         }
     }
     
-    func runDepthAnalysis() {
+    func runRandomDepthAnalysis() {
         
         if !isBusy {
             
             isBusy = true
-            scientist.runRandomDepthAnalysis()
+            scientist.startRandomDepthAnalysis()
             
+        }
+    }
+    
+    func runCustomDepthAnalysis() {
+        
+        if !isBusy {
+        
+            isBusy = true
+            
+            scientist.startCustomDepthAnalysisAtCoordinate(Coordinate(row: 1,column: 1))
         }
     }
     
